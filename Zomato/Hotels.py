@@ -20,7 +20,7 @@ class Hotels(Menus):
         print("******Welcome to Zomato******")
         print("You have choosen the Dish :" +Dish)
         print("The quantity of the Dish :" + str(quantity))
-        vegItemvalus=Menus.VegDishValue(self)
+        vegItemvalus=Menus.particularHotemMenu(self,HotelName)
         perPieceAmountValue=vegItemvalus.get(Dish)
         print("Per piece of "+Dish+" is :" + str(perPieceAmountValue))
         TotalAmountwithouttax=Menus.calculationlogic(self,quantity,perPieceAmountValue)
