@@ -1,9 +1,12 @@
 from Zomato.CommonFunctions import CommonFunctions
 from Zomato.Menus import Menus
+import pyttsx3
 
 
 class HotelsusingExcel(Menus):
     NonVeg={}
+    # initialize Text-to-speech engine
+    engine = pyttsx3.init()
     def HotelInfoExcel(self,HotelName,Dish,quantity):
         if(HotelName=="A2B"):
             self.billing(HotelName,Dish,quantity)
@@ -29,6 +32,9 @@ class HotelsusingExcel(Menus):
             print("Your tax amount is :" + str(taxvalue))
             overallamount = TotalAmountwithouttax + taxvalue
             print("overall bill amount for this order is: " + str(overallamount))
+            self.engine.say("overall bill amount for this order is: " + str(overallamount))
+            # play the speech
+            self.engine.runAndWait()
         else:
             print("Please try with some other order since its not available at the moment")
 
@@ -40,4 +46,4 @@ class HotelsusingExcel(Menus):
         for eachValue in iterationvalue:
             print(eachValue)
 HT=HotelsusingExcel()
-HT.HotelInfoExcel("SKR","Sorry",5)
+HT.HotelInfoExcel("SRV","Poori",5)
